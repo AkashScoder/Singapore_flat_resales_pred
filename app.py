@@ -8,7 +8,7 @@ import seaborn as sns
 from xgboost import XGBRegressor
 
 icon = Image.open(
-    "C://Users//akash//PycharmProjects//pythonProject//Singapore flat resales//hdb-resale-price-singapore-1.jpg")
+    ".//hdb-resale-price-singapore-1.jpg")
 st.set_page_config(
     page_title="Singapore Flat Resales | By Akash S",
     page_icon=icon,
