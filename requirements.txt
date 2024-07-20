@@ -6,3 +6,4 @@ Pillow
 seaborn
 streamlit
 xgboost
+sklearn
