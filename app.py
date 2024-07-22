@@ -8,9 +8,9 @@ import seaborn as sns
 from xgboost import XGBRegressor
 
 icon = Image.open(
-    ".//hdb-resale-price-singapore-1.jpg")
+    "./hdb-resale-price-singapore-1.jpg")
 st.set_page_config(
-    page_title="Singapore Flat Resales | By Akash S",
+    page_title="Singapore Flat Resale Predictor | By Akash S",
     page_icon=icon,
     layout="wide",
     initial_sidebar_state="expanded",
@@ -20,7 +20,7 @@ st.set_page_config(
 st.sidebar.header("Dashboard")
 menu_select = st.sidebar.selectbox('Select from Menu', options=['Home', 'Price Predictor'])
 # Set page config
-# st.set_page_config(page_title="Singapore Flat Resales", layout="wide")
+# st.set_page_config(page_title="Singapore Flat Resale Predictor", layout="wide")
 if menu_select == "Home":
     # Main content for the homepage
     st.markdown("<h1 style='text-align: center; color: violet;'>Singapore Flat Resale Predictor</h1>",
@@ -103,7 +103,7 @@ if menu_select == 'Price Predictor':
             text-align: center; /* Center-align text */
         }
         </style>
-        <div class="title">Singapore Flat Resales</div>
+        <div class="title">Singapore Flat Resale Predictor</div>
         """, unsafe_allow_html=True)
 
     # Define dummy value
@@ -157,17 +157,20 @@ if menu_select == 'Price Predictor':
     # Input for floor area (in sqm)
     with col1:
         st.header('Floor Area')
-        floor_area_sqm = st.number_input('Enter Floor Area (sqm)', min_value=35.0, max_value=170.0, format="%.2f")
+        floor_area_sqm = st.number_input('Enter Floor Area (sqm)', min_value=35.0, max_value=170.0, format="%.2f",
+                                         help='Enter the floor area is (sqm)')
 
     # Input for lease commence year
     with col2:
         st.header('Lease Commence Year')
-        lease_commence_year = st.number_input('Select Lease Commence Year', min_value=1966, max_value=2024, format="%d")
+        lease_commence_year = st.number_input('Select Lease Commence Year', min_value=1966, max_value=2024, format="%d",
+                                              help='Enter Lease commence year')
 
     # Input for remaining lease (in years)
     with col1:
         st.header('Remaining Lease')
-        remaining_lease = st.number_input('Enter Remaining Lease (years)', min_value=40, max_value=100)
+        remaining_lease = st.number_input('Enter Remaining Lease (years)', min_value=40, max_value=100,
+                                          help='Enter Remaining lease year')
 
     # Center button in a custom container
     if st.button('Calculate Resale Price', key='calculate_resale_price'):
